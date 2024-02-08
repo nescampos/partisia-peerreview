@@ -6,6 +6,11 @@ This project is built using a fork from [Partisia Blockchain dApp Playground](ht
 
 Smart contract (test): https://browser.testnet.partisiablockchain.com/contracts/0227a8c08ac1855e8d8701bc367f9db86c8122140f
 
+## Status
+
+- Smart contract implemented, in _peerreview_ folder.
+- UI for PeerReview (Work in progress).
+
 ## It is an Automated setup
 
 To interact with the Partisia Blockchain you need an account with gas.
