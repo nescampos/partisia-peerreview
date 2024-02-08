@@ -1,23 +1,10 @@
-# The DApp Playground for Partisia Blockchain
+# Partisia Peer Review
 
-This a development environment for the Partisia Blockchain, made for creating applications and smart
-contracts utilizing the Zk Rust and public blockchain.
+Peer Review is a new project, to enable peer reviews for the scientific community.
 
-Read the documentation to better understand
-[the fundamentals of the Partisia Blockchain](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/introduction-to-the-fundamentals.html)
+This project is built using a fork from [Partisia Blockchain dApp Playground](https://github.com/partisiablockchain/dapp-playground). Follow the instructions there to enable the Codespace.
 
-The repo contains two simple smart contracts with simple front-ends:
-The [petition contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/petition?ref_type=heads)
-and
-the [average salary contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/zk-average-salary?ref_type=heads)
-This is provided in a codespace, where all the tooling needed for developing smart contracts and
-front-ends is installed.
-
-To develop in your browser create a codespace for a repository,
-select the `main` branch. You can read
-more [here](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)
-
-Inside the codespace you can run predefined tasks by pressing `Ctrl+Shift+B`.
+Smart contract (test): https://browser.testnet.partisiablockchain.com/contracts/0227a8c08ac1855e8d8701bc367f9db86c8122140f
 
 ## It is an Automated setup
 
@@ -33,41 +20,23 @@ just remember the private keys, because they are not saved when you delete the c
 Read how addresses works
 for [accounts and smart contracts](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/dictionary.html#address).
 
-## It is your own online personalized DApp playground
+## How you can test
 
-To use the codespace to develop your own DApps, fork the repository.
-On the fork you can modify the contract- and client code, to make your own DApp.
-To save your changes, use git to commit those changes to your forked repository.
+1. Build the project:
+```sh
+cargo partisia-contract build --release
+```
 
-Read about using codespaces in a forked
-repository [here](https://www.freecodecamp.org/news/how-to-make-your-first-open-source-contribution/).
+2. Implement the smart contract (example with parameters):
+```sh
+cargo partisia-contract cli tx deploy --gas 2500000 --privatekey Account-A.pk  /workspaces/partisia-peerreview/target/wasm32-unknown-unknown/release/peerreview.wasm /workspaces/partisia-peerreview/target/wasm32-unknown-unknown/release/peerreview.abi 'My first Paper' 'This is a paper for my research for 5 years' 'https://demo.org'
+```
+3. Check the smart contract in the testnet.
 
-When forking the repository you can drastically decrease boot up time for new dev containers
-by [configuring prebuilds](https://docs.github.com/en/codespaces/prebuilding-your-codespaces/configuring-prebuilds).
 
-If you want to do local development read
-the [dev container documentation](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code).
+## Team
 
-## Try, Learn and Interact with Partisia Blockchain
-
-We have included 2 challenge-based tutorials as part of your codespace, to help you learn and
-experiment.
-
-The first one explores the [Petition example application](tutorial/petition-example-application.md),
-showing how to collect signatures for showing interests in making specific changes in the world. The
-application consists of a smart contract written in Rust and a web frontend written in TypeScript.
-
-The second one explores
-the [Average Salary example application](tutorial/average-salary-example-application.md), showing
-how
-to compute the average salary of a group, without revealing the salary of any individual. This
-example
-uses the superpower of Partisia
-Blockchain,
-[Zk contracts](https://partisiablockchain.gitlab.io/documentation/smart-contracts/zk-smart-contracts/zk-smart-contracts.html).
-The
-application consists of a smart contract written in Rust
-and [Zk Rust](https://partisiablockchain.gitlab.io/documentation/smart-contracts/zk-smart-contracts/zk-rust-language-zkrust.html)
+This project is building by [Nestor Campos](https://www.linkedin.com/in/nescampos/)
 and a web frontend written in TypeScript.
 
 If you want to know more about the blockchain, ZK Rust or just contracts in general,
